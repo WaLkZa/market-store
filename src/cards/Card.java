@@ -7,11 +7,13 @@ public abstract class Card {
     private String ownerName;
     private double turnover;
     private double valueOfPurchase;
+    protected double discountRate;
 
     protected Card(String ownerName, double turnover, double valueOfPurchase) {
         this.setOwnerName(ownerName);
         this.setTurnover(turnover);
         this.setValueOfPurchase(valueOfPurchase);
+        this.setDiscountRate();
     }
 
     protected String getOwnerName() {
@@ -50,6 +52,29 @@ public abstract class Card {
         this.valueOfPurchase = valueOfPurchase;
     }
 
-    protected abstract double getDiscountOfTheCurrentPurchase();
-    protected abstract double getTotalDiscount();
+    protected double getDiscountRate() {
+        return this.discountRate;
+    }
+
+    protected abstract void setDiscountRate();
+
+    protected double getDiscountOfTheCurrentPurchase() {
+        return (this.getValueOfPurchase() * this.getDiscountRate()) / 100;
+    }
+
+    protected double getTotalDiscount() {
+        return this.getValueOfPurchase() - this.getDiscountOfTheCurrentPurchase();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Purchase value: $%.2f\n" +
+                        "Discount rate: %.1f%%\n" +
+                        "Discount: $%.2f\n" +
+                        "Total: $%.2f",
+                this.getValueOfPurchase(),
+                this.getDiscountRate(),
+                this.getDiscountOfTheCurrentPurchase(),
+                this.getTotalDiscount());
+    }
 }
