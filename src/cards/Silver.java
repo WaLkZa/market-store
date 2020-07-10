@@ -2,8 +2,8 @@ package cards;
 
 public class Silver extends Card {
 
-    public Silver(String ownerName, double turnover, double discountRate) {
-        super(ownerName, turnover, discountRate);
+    public Silver(String ownerName, double turnover, double valueOfPurchase) {
+        super(ownerName, turnover, valueOfPurchase);
     }
 
     @Override
