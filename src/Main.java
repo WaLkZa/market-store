@@ -11,11 +11,9 @@ public class Main {
             Card silver = new Silver("Gosho", 600, 850);
             Card gold = new Gold("Minka", 1500, 1300);
 
-            System.out.println(bronze);
-            System.out.println();
-            System.out.println(silver);
-            System.out.println();
-            System.out.println(gold);
+            System.out.println(bronze.toString());
+            System.out.println(silver.toString());
+            System.out.println(gold.toString());
         } catch (Exception ex){
             System.out.println(ex.getMessage());
         }

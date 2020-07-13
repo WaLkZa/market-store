@@ -71,7 +71,7 @@ public abstract class Card {
         return String.format("Purchase value: $%.2f\n" +
                         "Discount rate: %.1f%%\n" +
                         "Discount: $%.2f\n" +
-                        "Total: $%.2f",
+                        "Total: $%.2f\n",
                 this.getValueOfPurchase(),
                 this.getDiscountRate(),
                 this.getDiscountOfTheCurrentPurchase(),
